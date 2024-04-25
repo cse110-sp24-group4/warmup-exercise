@@ -1,13 +1,14 @@
 html {
     font-family: colfax-web, sans-serif;
 }
-#month-container{
+#month-container {
     padding: 16px;
     display: flex;
     justify-content: center;
 }
 
-#month-grid, #day-info  {
+#month-grid,
+#day-info {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto;
     justify-content: center;
@@ -39,9 +40,10 @@ html {
     }
 }
 
-#day-info > div {
+#day-info>div {
     margin: 5px;
-    & > button {
+
+    &>button {
         margin-left: 5px;
         background: none;
         box-shadow: none;
@@ -57,8 +59,24 @@ html {
     background-color: peachpuff;
 }
 
-#month-header {
-    text-align: center;
+#start {
+    min-width: 32px;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.calendar-container {
+    margin-top: 16px;
+}
+
+.calendar-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
 }
 
 .day-block {
