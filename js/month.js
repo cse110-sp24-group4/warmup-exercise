@@ -37,7 +37,7 @@ function getOffset(month, year) {
 }
 
 /* Fills month grid with buttons for each day based on selected year and month */
-const populateMonthGrid = (month, year) => {
+function populateMonthGrid(month, year) {
   const monthDays = [
     31,
     year % 4 == 0 ? 29 : 28,
@@ -83,6 +83,22 @@ const populateMonthGrid = (month, year) => {
     dayBlock.disabled = true;
     monthGrid.appendChild(dayBlock);
   }
-};
+}
 
-populateMonthGrid(2, 2024);
+/* Clears the grid of all day blocks */
+function clearMonthGrid() {
+  const monthGrid = document.getElementById("month-grid");
+
+  const dayBlocks = monthGrid.getElementsByClassName("day-block");
+  for (let i = dayBlocks.length - 1; i >= 0; i--) {
+    monthGrid.removeChild(dayBlocks[i]);
+  }
+}
+
+/* Refreshes the grid to update the days */
+function clearAndRepopulate(month, year) {
+  clearMonthGrid();
+  populateMonthGrid(month, year);
+}
+
+clearAndRepopulate(2, 2024);
