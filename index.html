@@ -11,24 +11,21 @@
 </head>
 
 <body>
-    <div class="input">
-        <label for="start">Input Month & Year:</label>
-        <input type="month" id="start" name="start" min="2024-01" value="2024-04"
-            onchange="updateCalendarFromInput()" />
-    </div>
 
-    <div class="calendar-container">
-        <header class="calendar-header">
-            <p class="calendar-current-date"></p>
-            <div class="calendar-navigation">
-                <span id="calendar-prev" class="material-symbols-rounded">chevron_left</span>
-                <span id="calendar-next" class="material-symbols-rounded">chevron_right</span>
-            </div>
-        </header>
-    </div>
 
     <header>
-        <h1 id="month-header">May</h1>
+        <div class="calendar-container">
+            <header class="calendar-header">
+                <div class="calendar-title">
+                    <button id="calendar-prev" class="material-symbols-rounded">chevron_left</button>
+                    <div class="input">
+                        <input type="month" id="start" name="start" min="2024-01" value="2024-04"
+                            onchange="updateCalendarFromInput()" />
+                    </div>
+                    <button id="calendar-next" class="material-symbols-rounded">chevron_right</button>
+                </div>
+            </header>
+        </div>
 
     </header>
     <div id="month-container">

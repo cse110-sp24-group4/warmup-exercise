@@ -6,10 +6,10 @@ let year = date.getFullYear();
 // Extract the month from the current date
 let month = date.getMonth();
 
-// Select the HTML element that displays the current date
-const currentDateDisplay = document.querySelector(".calendar-current-date");
 // Select the navigation icons for changing months
-const navigationIcons = document.querySelectorAll(".calendar-navigation span");
+const navigationIcons = document.querySelectorAll(
+  "#calendar-prev, #calendar-next",
+);
 // Select main date display
 const mainDisplay = document.getElementById("month-header");
 // Select input element
@@ -35,8 +35,7 @@ const months = [
  * Updates the calendar display with the current month and year
  */
 function updateCalendar() {
-  currentDateDisplay.innerText = `${months[month]} ${year}`;
-  mainDisplay.innerText = `${months[month]} ${year}`;
+  // mainDisplay.innerText = `${months[month]} ${year}`;
   input.value = dateToInputFormat(month, year);
   clearAndRepopulate(month, year);
 }
