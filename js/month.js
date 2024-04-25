@@ -110,20 +110,9 @@ function createDayBlock(id, text) {
 /* Function to handle when day block is pressed */
 function expandDay(dayId) {
   var monthString = month + 1;
-  /*if (monthString.length = 1) {
-    monthString = "0" + monthString;
-  }*/
   var dayString = dayId.replace(/\D/g, '');
-  console.log(dayString);
   dayString = parseInt(dayString) + 1;
-  console.log(dayString);
-  /*if (dayString.length < 1) {
-    dayString = "0" + dayString;
-  }*/
-
   dateString = year + "-" + monthString + "-" + dayString;
-  console.log(dateString);
-  console.log(`pressed ${dayId}`);
   setDate(dateString);
 }
 
