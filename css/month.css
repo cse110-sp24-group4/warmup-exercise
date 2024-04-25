@@ -1,3 +1,6 @@
+html {
+    font-family: colfax-web, sans-serif;
+}
 #month-container {
     padding: 16px;
     display: flex;
@@ -18,6 +21,23 @@
 
 #day-info {
     background-color: white;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    & > textArea {
+        margin-top: 5px;
+        resize: none;
+        outline: none;
+        border-radius: 5x;
+    }
+    & > button {
+        margin-left: 5px;
+        background: none;
+        box-shadow: none;
+        border-style: solid;
+        border-radius: 5px;
+        border-color: gray;
+    }
 }
 
 #day-info>div {
@@ -25,6 +45,11 @@
 
     &>button {
         margin-left: 5px;
+        background: none;
+        box-shadow: none;
+        border-style: solid;
+        border-radius: 5px;
+        border-color: gray;
     }
 }
 
