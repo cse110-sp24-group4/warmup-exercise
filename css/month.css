@@ -34,9 +34,8 @@ html {
         margin-left: 5px;
         background: none;
         box-shadow: none;
-        border-style: solid;
+        border: solid 1px gray;
         border-radius: 5px;
-        border-color: gray;
     }
 }
 
@@ -47,9 +46,8 @@ html {
         margin-left: 5px;
         background: none;
         box-shadow: none;
-        border-style: solid;
+        border: solid 1px gray;
         border-radius: 5px;
-        border-color: gray;
     }
 }
 
