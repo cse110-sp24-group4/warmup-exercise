@@ -1,9 +1,13 @@
+
+
 // Initialize the current date
 let date = new Date();
 // Extract the year from the current date
 let year = date.getFullYear();
+console.log(year);
 // Extract the month from the current date
 let month = date.getMonth();
+console.log(month);
 
 // Select the HTML element that displays the current date
 const currentDateDisplay = document.querySelector(".calendar-current-date");
@@ -105,7 +109,22 @@ function createDayBlock(id, text) {
 
 /* Function to handle when day block is pressed */
 function expandDay(dayId) {
+  var monthString = month + 1;
+  /*if (monthString.length = 1) {
+    monthString = "0" + monthString;
+  }*/
+  var dayString = dayId.replace(/\D/g, '');
+  console.log(dayString);
+  dayString = parseInt(dayString) + 1;
+  console.log(dayString);
+  /*if (dayString.length < 1) {
+    dayString = "0" + dayString;
+  }*/
+
+  dateString = year + "-" + monthString + "-" + dayString;
+  console.log(dateString);
   console.log(`pressed ${dayId}`);
+  setDate(dateString);
 }
 
 /* Gets day of week for first day of the month. */
