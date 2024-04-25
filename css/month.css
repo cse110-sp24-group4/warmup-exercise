@@ -1,10 +1,10 @@
-#month-container {
+#month-container{
     padding: 16px;
     display: flex;
     justify-content: center;
 }
 
-#month-grid {
+#month-grid, #day-info  {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto;
     justify-content: center;
@@ -13,6 +13,17 @@
     border: solid 1px gray;
     border-radius: 24px;
     overflow: hidden;
+}
+
+#day-info {
+    background-color: white;
+}
+
+#day-info > div {
+    margin: 5px;
+    & > button {
+        margin-left: 5px;
+    }
 }
 
 #month-grid>div {
