@@ -4,10 +4,9 @@
 let date = new Date();
 // Extract the year from the current date
 let year = date.getFullYear();
-console.log(year);
+
 // Extract the month from the current date
 let month = date.getMonth();
-console.log(month);
 
 // Select the HTML element that displays the current date
 const currentDateDisplay = document.querySelector(".calendar-current-date");
