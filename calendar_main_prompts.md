@@ -26,3 +26,20 @@
             day.textContent = i;
             calendarContainer.appendChild(day);
     }
+
+5. Write a javascript function that takes in html element, and removes all of its children if that child has a class of "day"
+   Answer: Use
+   ```javascript
+      function removeChildrenWithClassDay(element) {
+   // Get all child elements with the class 'day'
+   const childrenWithClassDay = element.querySelectorAll('.day');
+
+   // Remove each child with the class 'day'
+   childrenWithClassDay.forEach(child => {
+      child.remove();
+   });
+   }
+
+
+
+
