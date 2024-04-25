@@ -178,5 +178,3 @@ function clearAndRepopulate(month, year) {
   clearMonthGrid();
   populateMonthGrid(month, year);
 }
-
-clearAndRepopulate(2, 2024);
