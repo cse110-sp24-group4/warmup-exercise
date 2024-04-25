@@ -8,14 +8,8 @@
     grid-template-columns: repeat(7, 1fr);  /* Currently we have the base now we need to create columns for each of the days */
 }
 
-h1, h2 {
+h1 {
     text-align: center;
-}
-
-.weekdays {
-    text-align: center;
-    grid-column: 1 / -1; 
-    font-weight: bold;
 }
 
 .days {
@@ -26,5 +20,15 @@ h1, h2 {
 
 .monthSelect {
     text-align: center;
+    margin: 10px;
+}
+
+.day {
+    cursor: default;
+    user-select: none;
+}
+
+.selectedDay {
+    background-color: lightseagreen;
 }
 
