@@ -1,11 +1,19 @@
 window.onload = (event) => {
-    const monthInput = document.getElementById("monthInput");
+    const monthInput = document.getElementById('monthInput');
 
-    monthInput.addEventListener("input", updateCalendar);
+    monthInput.addEventListener('input', updateCalendar);
 
     updateCalendar()
   };
 
+function selectDay(e) {
+    console.log('hi');
+    const oldSelected = document.querySelector('.selectedDay');
+    if (oldSelected) {
+        oldSelected.classList.remove('selectedDay');  
+    }
+    e.currentTarget.classList.add('selectedDay');
+}
 
 function updateCalendar() {
     const calendarContainer = document.getElementById('calendar');
@@ -36,6 +44,7 @@ function updateCalendar() {
         const day = document.createElement('div');
         day.classList.add('day');
         day.textContent = i;
+        day.addEventListener('click', selectDay);
         calendarContainer.appendChild(day);
     }
 }
