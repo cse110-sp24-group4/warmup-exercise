@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="calendar_main.css" type="text/css">
+    <title>Calendar Scheduler</title>
+</head>
+<body>
+    <h1>Calendar</h1>
+
+    <h2>Month</h2>
+
+    <div class="calendar">
+        <div class="header" id="month"></div>
+        <div class="days">Sun</div>
+        <div class="days">Mon</div>
+        <div class="days">Tue</div>
+        <div class="days">Wed</div>
+        <div class="days">Thu</div>
+        <div class="days">Fri</div>
+        <div class="days">Sat</div>
+        <div id="calendar"></div>
+    </div>
+
+    <input type="number" id="monthInput" placeholder="Month (1-12)">
+    <input type="number" id="yearInput" placeholder="Year (e.g., 2024)">
+    <button onclick="updateCalendar()">Update Calendar</button>
+    <script src="calendar_main.js"></script>
+      
+</body>
+</html>

@@ -1,0 +1,21 @@
+.calendar{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);  /* Currently we have the base now we need to create columns for each of the days */
+}
+
+h1, h2{
+    text-align: center;
+}
+
+.header{
+    text-align: center;
+    grid-column: 1 / -1; 
+    font-weight: bold;
+}
+
+.days{
+    text-align: center;
+    font-weight: bold;
+    background-color: beige;
+    
+}
