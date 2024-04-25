@@ -2,66 +2,93 @@
 let date = new Date();
 // Extract the year from the current date
 let year = date.getFullYear();
-// Extract the month from the current date 
+// Extract the month from the current date
 let month = date.getMonth();
 
 // Select the HTML element that displays the current date
 const currentDateDisplay = document.querySelector(".calendar-current-date");
 // Select the navigation icons for changing months
 const navigationIcons = document.querySelectorAll(".calendar-navigation span");
+// Select main date display
+const mainDisplay = document.getElementById("month-header");
+// Select input element
+const input = document.getElementById("start");
 
 // An array containing each month
-const months = ["January", "February", "March", "April", "May", "June", 
-                "July", "August", "September", "October", "November", "December"];
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 /**
  * Updates the calendar display with the current month and year
  */
 function updateCalendar() {
-    currentDateDisplay.innerText = `${months[month]} ${year}`;
+  currentDateDisplay.innerText = `${months[month]} ${year}`;
+  mainDisplay.innerText = `${months[month]} ${year}`;
+  input.value = dateToInputFormat(month, year);
+  clearAndRepopulate(month, year);
 }
 
 /**
  * Updates the calendar based on the input month and year
  */
 function updateCalendarFromInput() {
-    // Get the month and year from the input field
-    const input = document.getElementById('start');
-    const [inputYear, inputMonth] = input.value.split('-').map(num => parseInt(num));
-    year = inputYear;
-    month = inputMonth - 1;
-    updateCalendar();
+  // Get the month and year from the input field
+  const [inputYear, inputMonth] = input.value
+    .split("-")
+    .map((num) => parseInt(num));
+  year = inputYear;
+  month = inputMonth - 1;
+  updateCalendar();
+}
+
+/* Converts numerical values of month and year to string format
+ * accepted by input element
+ */
+function dateToInputFormat(month, year) {
+  var inputString = year + "-";
+  if (month + 1 < 10) inputString += "0";
+  inputString += month + 1;
+  return inputString;
 }
 
 // Add event listeners to each navigation icon
-navigationIcons.forEach(icon => {
-    icon.addEventListener("click", () => {
-        // Determine which icon was clicked and adjust the month accordingly
-        if (icon.id === "calendar-prev") {
-            month--;
-            // Year decrement when moving back from January to December
-            if (month < 0) {
-                month = 11;
-                year--;
-            }
-        } else if (icon.id === "calendar-next") {
-            month++;
-            // Year increment when moving forward from December to January
-            if (month > 11) {
-                month = 0;
-                year++;
-            }
-        }
-        // Update the calendar display to reflect the new month and year
-        updateCalendar();
-    });
+navigationIcons.forEach((icon) => {
+  icon.addEventListener("click", () => {
+    // Determine which icon was clicked and adjust the month accordingly
+    if (icon.id === "calendar-prev") {
+      month--;
+      // Year decrement when moving back from January to December
+      if (month < 0) {
+        month = 11;
+        year--;
+      }
+    } else if (icon.id === "calendar-next") {
+      month++;
+      // Year increment when moving forward from December to January
+      if (month > 11) {
+        month = 0;
+        year++;
+      }
+    }
+    // Update the calendar display to reflect the new month and year
+    updateCalendar();
+  });
 });
 
 // Call updateCalendar initially to set the initial display
 updateCalendar();
-
-
-//const monthSelector = document.getElementById("#month-selector");
 
 /* Creates each individual day block in the month grid using specified text and id */
 function createDayBlock(id, text) {
@@ -81,22 +108,10 @@ function expandDay(dayId) {
   console.log(`pressed ${dayId}`);
 }
 
-/* Gets day of week for first day of the month. Formula found from https://cs.uwaterloo.ca/~alopez-o/math-faq/node73.html */
+/* Gets day of week for first day of the month. */
 function getOffset(month, year) {
-  const k = 1;
-  const m = ((month - 3 + 12) % 12) + 1;
-  const C = Math.floor(year / 100);
-  const Y = (year % 100) - (month <= 2 ? 1 : 0);
-  const offset =
-    (k +
-      Math.floor(2.6 * m - 0.2) -
-      2 * C +
-      Y +
-      Math.floor(Y / 4) +
-      Math.floor(C / 4) +
-      7) %
-    7;
-  return offset;
+  const firstDay = new Date(year, month, 1);
+  return firstDay.getDay();
 }
 
 /* Fills month grid with buttons for each day based on selected year and month */
@@ -119,11 +134,11 @@ function populateMonthGrid(month, year) {
 
   const offset = getOffset(month, year) - 1;
 
-  const numDays = monthDays[month - 1];
+  const numDays = monthDays[month];
 
   /* Populates days of week from previous month. Each block has id `offset${dayOfMonth - 1}`  */
   for (let i = offset; i >= 0; i--) {
-    const lastMonth = (month - 1) % 12;
+    const lastMonth = (month - 1 + 12) % 12;
     const lastMonthDays = monthDays[lastMonth];
 
     const dayBlock = createDayBlock(`offset${i}`, `${lastMonthDays - i}`);
@@ -163,5 +178,3 @@ function clearAndRepopulate(month, year) {
   clearMonthGrid();
   populateMonthGrid(month, year);
 }
-
-clearAndRepopulate(2, 2024);
