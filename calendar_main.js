@@ -3,8 +3,22 @@ window.onload = (event) => {
 
     monthInput.addEventListener('input', updateCalendar);
 
+    const entry = document.getElementById('entry');
+    entry.addEventListener('input', saveEntry);
+
     updateCalendar()
   };
+
+function saveEntry(e) {
+    const monthInput = document.getElementById('monthInput');
+    const date = monthInput.value + '-' + document.querySelector('.selectedDay').innerHTML;
+    localStorage.setItem(date, e.currentTarget.value);
+}
+
+function loadEntry(date) {
+    const entry = document.getElementById('entry');
+    entry.value = localStorage.getItem(date);
+}
 
 function selectDay(e) {
     console.log('hi');
@@ -13,6 +27,13 @@ function selectDay(e) {
         oldSelected.classList.remove('selectedDay');  
     }
     e.currentTarget.classList.add('selectedDay');
+    
+    const entryTitle = document.getElementById('entryTitle');
+    const monthInput = document.getElementById('monthInput');
+    const date = monthInput.value + '-' + e.currentTarget.innerHTML;
+    entryTitle.innerHTML = date +' entry:';
+
+    loadEntry(date);
 }
 
 function updateCalendar() {
