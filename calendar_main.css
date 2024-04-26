@@ -31,4 +31,73 @@ h1 {
 .selectedDay {
     background-color: lightseagreen;
 }
+#daily-scheduler {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#daily-scheduler h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#scheduler-date span {
+    font-weight: bold;
+    color: #4A90E2;
+}
+
+.time-slot {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.time-slot h2 {
+    margin-top: 0;
+    color: #555;
+}
+
+.tasks {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.tasks li {
+    background-color: #eef;
+    padding: 5px;
+    border: 1px solid #ccd;
+    margin-bottom: 5px;
+}
+
+.add-task {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.add-task:hover {
+    background-color: #45a049;
+}
+
+/* Responsive styling if necessary */
+@media (max-width: 768px) {
+    #daily-scheduler {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .time-slot {
+        padding: 10px;
+    }
+}
 

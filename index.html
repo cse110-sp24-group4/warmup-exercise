@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="calendar_main.css" type="text/css">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="calendar_main.css" type="text/css" />
     <title>Calendar Scheduler</title>
     <script src="calendar_main.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Calendar</h1>
 
     <div class="monthSelect">
-        <input type="month" id="monthInput" value="2024-04">
+      <input type="month" id="monthInput" value="2024-04" />
     </div>
 
     <div id="calendar">
-        <div class="days">Sun</div>
-        <div class="days">Mon</div>
-        <div class="days">Tue</div>
-        <div class="days">Wed</div>
-        <div class="days">Thu</div>
-        <div class="days">Fri</div>
-        <div class="days">Sat</div>
+      <div class="days">Sun</div>
+      <div class="days">Mon</div>
+      <div class="days">Tue</div>
+      <div class="days">Wed</div>
+      <div class="days">Thu</div>
+      <div class="days">Fri</div>
+      <div class="days">Sat</div>
+      <!-- Days are dynamically filled here -->
     </div>
 
-    <div id="dayPlanner">
-        <h2 id="entryTitle"></h2>
-        <textarea id="entry"></textarea>
+    <!-- Daily Scheduler Section, displayed based on selected day -->
+    <div id="daily-scheduler">
+      <h1 id="scheduler-date">Daily Scheduler: <span></span></h1>
+      <div class="time-slots">
+        <!-- Time slots will be generated here -->
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>
