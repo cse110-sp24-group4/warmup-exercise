@@ -53,7 +53,22 @@ function updateScheduler(date) {
                 const taskItem = document.createElement('li');
                 taskItem.textContent = taskText;
                 timeSlot.querySelector('.tasks').appendChild(taskItem);
+                taskIdx = timeSlot.querySelector('.tasks').children.length - 1;
+
+                localStorage.setItem(date + hour + taskIdx, taskText);
+                localStorage.setItem(date + hour, Number(taskIdx + 1));
             }
         });
+
+
+        let tasksLength = localStorage.getItem(date + hour);
+        if (tasksLength) {
+            for (let i = 0; i < tasksLength; i++) {
+                const taskItem = document.createElement('li');
+                taskItem.textContent = localStorage.getItem(date + hour + i);
+                timeSlot.querySelector('.tasks').appendChild(taskItem);
+            }
+        }
+
     }
 }
