@@ -44,7 +44,7 @@ function updateScheduler(date) {
     for (let hour = 9; hour <= 17; hour++) {
         let timeSlot = document.createElement('div');
         timeSlot.className = 'time-slot';
-        timeSlot.innerHTML = `<h2>${hour}:00 - ${hour + 1}:00</h2><ul class="tasks"></ul><button class="add-task">Add Task</button>`;
+        timeSlot.innerHTML = `<h2>${hour}:00 - ${hour + 1}:00</h2><ul class="tasks"></ul><button class="add-task">Add Task</button><button class="remove-task">Clear</button>`;
         scheduler.appendChild(timeSlot);
 
         timeSlot.querySelector('.add-task').addEventListener('click', function() {
@@ -58,6 +58,17 @@ function updateScheduler(date) {
                 localStorage.setItem(date + hour + taskIdx, taskText);
                 localStorage.setItem(date + hour, Number(taskIdx + 1));
             }
+        });
+
+        timeSlot.querySelector('.remove-task').addEventListener('click', function() {
+            let tasksLength = localStorage.getItem(date + hour);
+            if (tasksLength) {
+                for (let i = 0; i < tasksLength; i++) {
+                    localStorage.removeItem(date + hour + i);
+                }
+            }
+            localStorage.removeItem(date + hour);
+            timeSlot.querySelector('.tasks').innerHTML = '';
         });
 
 
