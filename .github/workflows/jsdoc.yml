@@ -1,0 +1,14 @@
+name: generate-jsdoc
+on:    
+    workflow_dispatch:
+
+jobs:
+    jsdoc-job:
+        runs-on: ubuntu-latest
+        steps:
+           - name: JSDoc Action
+             uses: andstor/jsdoc-action@v1.2.1
+             with:
+                source_dir: ./js
+                output_dir: ./docs/jsdoc
+       
