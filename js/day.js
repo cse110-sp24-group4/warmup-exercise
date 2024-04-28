@@ -1,3 +1,4 @@
+// Array to resolve indexes to month names
 const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
