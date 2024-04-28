@@ -1,6 +1,8 @@
 name: generate-jsdoc
 on: 
     push:
+        paths:
+            - '**/*.js'
     workflow_dispatch:
 
 jobs:
@@ -23,7 +25,7 @@ jobs:
                 git add .
                 git commit -m "Generate JSDoc"
           - name: Push JSDoc
-            if: ${{ github.actor != 'github-actions' }}
+            #: if: ${{ github.actor != 'github-actions' }}
             uses: ad-m/github-push-action@master
             with:
                github_token: ${{secrets.GITHUB_TOKEN}}
