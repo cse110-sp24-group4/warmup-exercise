@@ -1,0 +1,32 @@
+{
+  "name": "warmup-exercise",
+  "version": "1.0.0",
+  "description": "Calendar widget webapp",
+  "main": "index.html",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cse110-sp24-group4/warmup-exercise.git"
+  },
+  "authors": [
+   "Daniel Andrews",
+   "Matt Goldberg",
+   "Gautham Prabhakar",
+   "Joseph Kan",
+   "Kaye Falaminiano",
+   "Tia Irani",
+   "Anushka Jakhanwal",
+   "Kekoa Pickett",
+   "Vaibhav Maloo"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cse110-sp24-group4/warmup-exercise/issues"
+  },
+  "homepage": "https://github.com/cse110-sp24-group4/warmup-exercise#readme"
+}

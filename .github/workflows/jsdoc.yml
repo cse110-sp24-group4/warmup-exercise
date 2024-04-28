@@ -14,14 +14,17 @@ jobs:
           - name: Generate JSDoc
             run: npx jsdoc -c ./.config/jsdoc.json
           - name: Commit JSDoc
+            if: ${{ github.actor != 'github-actions' }}
             run: |
                 git config --local user.email "action@github.com"
                 git config --local user.name "GitHub Action"
                 git add .
                 git commit -m "Generate JSDoc"
           - name: Push JSDoc
+            if: ${{ github.actor != 'github-actions' }}
             uses: ad-m/github-push-action@master
             with:
+                
                github_token: ${{secrets.GITHUB_TOKEN}}
                force: true
 
