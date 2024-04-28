@@ -1,5 +1,8 @@
 name: generate-jsdoc
 on: 
+    push:
+        paths: 
+            - './js/**'
     workflow_dispatch:
 
 jobs:
