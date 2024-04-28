@@ -10,7 +10,9 @@ jobs:
           - name: Get access to repo
             uses: actions/checkout@v4
           - name: Install Dependencies
-            run: npm install
+            run: |
+                npm install
+                npm install jsdoc docdash
           - name: Generate JSDoc
             run: npx jsdoc -c ./.config/jsdoc.json
           - name: Commit JSDoc
