@@ -1,25 +1,24 @@
 {
+    "tags": {
+        "allowUnknownTags": false
+    },
     "source": {
-      "include": ["js"],
-      "includePattern": ".+\\.js(doc|x)?$",
-      "excludePattern": "(^|\\/|\\\\)_"
-    },
-    "plugins": ["plugins/markdown"],
+        "include": ["js"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+      },
+    "plugins": [
+        "plugins/markdown"
+    ],
     "opts": {
-      "recurse": true,
-      "destination": "docs/js/",
-      "template": "node_modules/docdash",
-      "readme": "README.md"
-    },
-    "markdown": {
-      "idInHeadings": true
+        "template": "node_modules/docdash",
+        "encoding": "utf8",
+        "destination": "docs/js/",
+        "recurse": true,
+        "verbose": true
     },
     "templates": {
-      "cleverLinks": false,
-      "monospaceLinks": false,
-      "default": {
-        "outputSourceFiles": true,
-        "layoutFile": "./node_modules/docdash/layout.tmpl"
-      }
+        "cleverLinks": false,
+        "monospaceLinks": false
     }
-  }
+}
