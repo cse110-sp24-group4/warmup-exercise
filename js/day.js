@@ -119,7 +119,8 @@ function deleteEntry(noteId) {
     update(idArray[1]);
 }
 /**
- * Edits an entry for the current date
+ * Edits an entry for the current date.
+ * 
  * @param {string} noteId - Id attribute of element to be edited
  */
 function editEntry(noteId) {
@@ -129,6 +130,12 @@ function editEntry(noteId) {
     elem.value = entryText;
     deleteEntry(noteId);
 }
+
+/**
+ * Removes all notes below specified index.
+ * 
+ * @param {number} index 
+ */
 function removeAllElementsBelow(index) {
     for (i = index; i < numNotes; i++) {
         document.getElementById("entry-" + i).remove();
